@@ -1,0 +1,101 @@
+/* Definizione Variabili (Tema Default: Granaio) */
+:root {
+    --primary-color: #E6B800; /* Oro */
+    --secondary-color: #333333;
+    --bg-color: #ffffff;
+    --bg-alt: #f9f9f9;
+    --text-color: #333;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Reset Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tipografia */
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+a { text-decoration: none; color: inherit; }
+
+/* Navbar */
+.navbar {
+    position: fixed; top: 0; width: 100%;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%;
+    background: var(--navbar-bg);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.logo { font-weight: 700; font-size: 1.5rem; }
+.highlight { color: var(--primary-color); }
+
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a:hover { color: var(--primary-color); }
+
+/* Theme Switcher */
+.theme-switch { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+.theme-btn {
+    width: 20px; height: 20px; border-radius: 50%;
+    border: 2px solid #ddd; cursor: pointer;
+    transition: transform 0.2s;
+}
+.theme-btn:hover { transform: scale(1.2); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?italy,wheat,field');
+    background-size: cover; background-position: center;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: white;
+}
+
+.hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+.btn-primary {
+    padding: 10px 25px; background: var(--primary-color);
+    color: white; border-radius: 30px; font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-primary:hover { filter: brightness(1.1); }
+
+/* Layout Generico */
+.container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--primary-color); }
+
+/* Cards Turismo */
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.card {
+    background: var(--bg-color); border-radius: 10px; overflow: hidden;
+    box-shadow: var(--shadow); transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card-info { padding: 1.5rem; }
+
+/* Cibo Alternato */
+.bg-alt { background-color: var(--bg-alt); padding: 4rem 0; }
+.food-grid { display: flex; flex-direction: column; gap: 3rem; }
+.food-item { display: flex; align-items: center; gap: 2rem; }
+.food-item.reverse { flex-direction: row-reverse; }
+.food-item img { width: 40%; border-radius: 10px; box-shadow: var(--shadow); }
+.food-item .text { width: 60%; }
+
+/* Footer */
+footer { text-align: center; padding: 2rem; background: #222; color: white; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .food-item, .food-item.reverse { flex-direction: column; }
+    .food-item img, .food-item .text { width: 100%; }
+    .navbar { flex-direction: column; gap: 10px; }
+}

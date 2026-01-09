@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scopri Foggia | Il Cuore del Tavoliere</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">FOGGIA<span class="highlight">EXP</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#turismo">Cosa Vedere</a></li>
+            <li><a href="#cibo">Gastronomia</a></li>
+        </ul>
+        <div class="theme-switch">
+            <span>Tema:</span>
+            <button class="theme-btn" onclick="setTheme('granaio')" style="background:#E6B800;"></button>
+            <button class="theme-btn" onclick="setTheme('notte')" style="background:#2C3E50;"></button>
+            <button class="theme-btn" onclick="setTheme('ulivo')" style="background:#556B2F;"></button>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Benvenuti a Foggia</h1>
+            <p>Tra storia federiciana, grano dorato e sapori autentici.</p>
+            <a href="#turismo" class="btn-primary">Inizia il tour</a>
+        </div>
+    </header>
+    
+    
+
+    <section id="turismo" class="container">
+        <h2 class="section-title">Tesori della Città</h2>
+        <div class="grid-cards">
+            <div class="card">
+                <img src="https://source.unsplash.com/800x600/?cathedral,architecture" alt="Cattedrale">
+                <div class="card-info">
+                    <h3>Cattedrale</h3>
+                    <p>Un gioiello di architettura romanico-pugliese, ricostruita dopo il terremoto del 1731, custodisce l'Iconavetere.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="https://source.unsplash.com/800x600/?park,fountain" alt="Villa Comunale">
+                <div class="card-info">
+                    <h3>Villa Comunale</h3>
+                    <p>Uno dei parchi urbani più grandi del sud Italia, perfetto per passeggiate tra colonne e verde storico.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://source.unsplash.com/800x600/?underground,cave" alt="Ipogei">
+                <div class="card-info">
+                    <h3>Foggia Sotterranea</h3>
+                    <p>Scopri gli Ipogei urbani e la storia nascosta sotto le strade del centro storico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cibo" class="bg-alt">
+        <div class="container">
+            <h2 class="section-title">Sapori del Granaio</h2>
+            <div class="food-grid">
+                <div class="food-item">
+                    <img src="https://source.unsplash.com/600x400/?pasta,tomato" alt="Orecchiette">
+                    <div class="text">
+                        <h3>Orecchiette & Cime di Rapa</h3>
+                        <p>Il classico intramontabile, simbolo della puglia e del foggiano.</p>
+                    </div>
+                </div>
+                
+                <div class="food-item reverse">
+                    <img src="https://source.unsplash.com/600x400/?cheese,pecorino" alt="Formaggi">
+                    <div class="text">
+                        <h3>Caciocavallo & Pecorino</h3>
+                        <p>Formaggi stagionati dal sapore intenso, frutto della transumanza.</p>
+                    </div>
+                </div>
+                <div class="food-item">
+                    <img src="https://source.unsplash.com/600x400/?pastry,honey" alt="Cartellate">
+                    <div class="text">
+                        <h3>Cartellate al Vincotto</h3>
+                        <p>Dolci tipici natalizi, friabili e ricchi di miele o vincotto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Foggia Experience. Realizzato con ❤️ per la Capitanata.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -26,6 +26,8 @@ let penColor = "#000000";
 let highlightColor = "#FFFF00";
 let penWidth = 2;
 let isEraser = false;
+let currentText = "";
+let lineStyle = "solid";
 
 // Gestione disegno su canvas
 canvas.addEventListener('mousedown', (e) => {
@@ -59,6 +61,7 @@ function redraw() {
         });
         ctx.strokeStyle = isEraser ? "#FFFFFF" : penColor;
         ctx.lineWidth = isEraser ? 10 : penWidth;
+        ctx.setLineDash(lineStyle === "dashed" ? [5, 5] : lineStyle === "dotted" ? [1, 5] : []);
         ctx.stroke();
     });
     if (currentPath.length > 1) {
@@ -69,9 +72,21 @@ function redraw() {
         });
         ctx.strokeStyle = isEraser ? "#FFFFFF" : penColor;
         ctx.lineWidth = isEraser ? 10 : penWidth;
+        ctx.setLineDash(lineStyle === "dashed" ? [5, 5] : lineStyle === "dotted" ? [1, 5] : []);
         ctx.stroke();
     }
 }
+
+// Funzione per scrivere testo sulla lavagna
+document.getElementById('text').addEventListener('click', () => {
+    const text = prompt("Scrivi il testo da inserire:", "");
+    if (text) {
+        ctx.fillStyle = penColor;
+        ctx.font = `${penWidth * 10}px Arial`;
+        ctx.fillText(text, 100, 100);
+        saveDrawing();
+    }
+});
 
 // Funzione per pulire la lavagna
 document.getElementById('clear').addEventListener('click', () => {
@@ -107,6 +122,12 @@ document.getElementById('penWidth').addEventListener('input', (e) => {
     penWidth = e.target.value;
 });
 
+// Selezione dello stile della linea
+document.getElementById('lineStyle').addEventListener('click', () => {
+    const style = prompt("Scegli lo stile della linea (solid, dashed, dotted):", "solid");
+    lineStyle = style;
+});
+
 // Salvataggio disegno
 document.getElementById('save').addEventListener('click', () => {
     const dataURL = canvas.toDataURL();
@@ -133,36 +154,3 @@ document.getElementById('loadFile').addEventListener('click', () => {
 document.getElementById('fileInput').addEventListener('change', (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-    reader.onload = function(event) {
-        const img = new Image();
-        img.onload = function() {
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        };
-        img.src = event.target.result;
-    };
-    reader.readAsDataURL(file);
-});
-
-// Funzione per salvare lo stato su Firebase
-function saveDrawing() {
-    const drawingData = canvas.toDataURL();
-    database.ref('drawings').set({
-        image: drawingData
-    });
-}
-
-// Funzione per caricare disegno da Firebase
-function loadDrawing() {
-    database.ref('drawings').on('value', (snapshot) => {
-        const drawingData = snapshot.val().image;
-        const img = new Image();
-        img.onload = function() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        };
-        img.src = drawingData;
-    });
-}
-
-// Carica disegno quando la pagina si carica
-loadDrawing();

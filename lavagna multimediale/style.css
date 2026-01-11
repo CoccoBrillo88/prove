@@ -22,3 +22,12 @@ canvas {
     cursor: crosshair;
     margin-top: 20px;
 }
+
+button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    width: 80px;
+}

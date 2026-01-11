@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavagna Multimediale</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="toolbar">
+        <button id="clear">Pulisci</button>
+        <button id="undo">Annulla</button>
+        <button id="penColor">Colore Penna</button>
+        <button id="highlightColor">Colore Evidenziatore</button>
+        <button id="eraser">Gomma</button>
+        <label for="penWidth">Spessore:</label>
+        <input type="range" id="penWidth" min="1" max="10" value="2">
+        <button id="save">Salva</button>
+        <button id="export">Esporta</button>
+        <button id="loadFile">Carica File</button>
+        <input type="file" id="fileInput" style="display:none;">
+    </div>
+    <canvas id="board"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
